@@ -1,0 +1,22 @@
+{
+  "projeto": "LinkedIn pessoal do Hilton: varejo e consumo",
+  "fuso": "America/Sao_Paulo",
+  "buffer": {
+    "organizationId": "6b0975eb0662e38c3e16d36e",
+    "canal_linkedin_pessoal": "6b0996168541f09ecbc25956"
+  },
+  "agenda": {
+    "posts_por_semana": 1,
+    "preparar": "quinta, 19h",
+    "publicar": "sexta, 11:30",
+    "publicar_se_aprovado_tarde": "sexta, 17:00"
+  },
+  "imagem": {
+    "provedor": "openai",
+    "modelo": "gpt-image-2",
+    "tamanho_gerado": "1024x1536",
+    "formato_final": "1080x1350"
+  },
+  "aprovacao": { "pagina_url": "https://claude.ai/artifact/R9wU7yX5E1fiFtCvytxxuN" },
+  "imagens": { "url_base": "https://raw.githubusercontent.com/hiltonlucas2011-dot/linkedin-mercado/main/" }
+}
