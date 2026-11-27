@@ -26,10 +26,10 @@ sexta 9h, 11h, 14h ──►  PUBLICAR: aprovado → Buffer (sexta 11h30, ou 17h
    4. **"Daqui para baixo é a minha leitura, não os dados:"** ou **"Minha leitura:"**: a opinião do Hilton, como empresário que está no dia a dia do comércio. Primeira pessoa do singular.
    5. **"Na prática:"** uma recomendação concreta para o lojista. Quando fizer sentido, puxe **de leve** para comunicação visual: vitrine, gôndola, balcão, sinalização, ponto de venda. Nunca cite a Eprint, produtos específicos ou preços.
    6. **Fechamento** de uma ou duas linhas que retoma o número do começo.
-   7. `Fonte nos comentários.`
+   7. **Fonte no fim do texto**, numa linha só, sem link: `Fonte: <instituição>, <nome da pesquisa> (<data>).` (o Buffer gratuito não publica o primeiro comentário).
    8. **2 hashtags**, por exemplo `#varejo #visualmerchandising` ou `#varejo #consumo`.
    Tamanho: 1.100 a 1.600 caracteres. Parágrafos curtos, linha em branco entre eles.
-3. **Comentário da fonte** (`primeiro_comentario`): `Fonte: <nome da pesquisa/instituição>, <data de publicação>. <link da fonte original>`.
+3. **Link da fonte** (`primeiro_comentario`): `Fonte: <nome da pesquisa/instituição>, <data de publicação>. <link da fonte original>`. Não vai para o LinkedIn automaticamente; fica na página de aprovação para o Hilton conferir e, se quiser, colar como comentário.
 4. **Foto** (`prompt_imagem`): descreva em português uma **cena realista** que mostre a situação do post (ex.: cliente olhando o celular diante de uma prateleira; vitrine de loja de rua num fim de tarde). Seja específico: lugar, luz, enquadramento, objetos. Nada de texto, números, logotipos ou marcas na imagem; pessoas sem rosto identificável. Rode `python3 scripts/gerar_imagem.py posts/<id>/post.json` e **abra o PNG** para conferir: mãos e objetos sem deformação, nenhuma letra ou marca aparecendo, cena coerente com o texto. Se ficar ruim, ajuste o prompt e gere de novo (no máximo 3 tentativas).
 5. Crie `posts/AAAA-MM-DD-<slug>/post.json` com: `id`, `data_publicacao` (sexta 11:30, `-03:00`), `tema`, `fonte_nome`, `fonte_url`, `fonte_data`, `texto`, `primeiro_comentario`, `prompt_imagem`, `alt`.
 6. Commit e push (`git -c push.negotiate=true push origin main`). A imagem fica pública em `config.imagens.url_base + posts/<id>/post.png`.
@@ -45,7 +45,7 @@ sexta 9h, 11h, 14h ──►  PUBLICAR: aprovado → Buffer (sexta 11h30, ou 17h
    - `dueAt`: sexta 11:30 (`-03:00`); se já passou, sexta 17:00; se também já passou, a próxima segunda 08:30.
    - `text` = `texto` (use o texto salvo no documento: o Hilton pode ter editado)
    - `assets[0].image.url` = `imagem_url`, com `metadata.altText` = `alt`
-   - `metadata.linkedin.firstComment` = `primeiro_comentario`
+   - **Não** envie `metadata.linkedin.firstComment`: no plano gratuito do Buffer o post é recusado.
    - Depois: `update` no documento com `status: "agendado"`, `buffer_id`, `agendado_para`. Acrescente uma linha em `conteudo/historico.md`, commit e push.
 3. `status: "ajuste"` → refaça seguindo o `feedback` (texto, foto ou os dois), suba a nova foto, volte para `status: "pendente"` com `versao` + 1 e `feedback` limpo.
 4. `pendente`, `reprovado` ou `agendado` → nada a fazer.
